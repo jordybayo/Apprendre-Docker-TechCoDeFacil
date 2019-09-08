@@ -1,0 +1,180 @@
+1)
+docker --version
+docker pull <image>
+sudo docker images
+docker run -it -d <image>
+docker ps
+docker ps -a
+docker exec -it <container ID>  bash
+sudo apt update
+sudo docker ps "does work"
+
+
+
+2)
+exit
+docker ps
+docker stop <Container ID>
+docker kill <docker ID>
+docker rm <container Id>
+docker rmi <Image Id>
+
+
+3)
+-aller a https://hub.dcoker.com
+-creer un compte
+-accepter les termes
+-verifier votre email
+-finallement connecter vous :)
+
+
+4)
+docker exec -it <Container ID> bash
+ls
+mkdir app
+exit
+docker rm <container ID>
+docker run -it -d ubuntu
+docker exec -it <container ID> bash
+ls
+"besoin de sauver" docker commit <container ID> new nomImage
+mkdir app
+ls
+exit
+docker commit <container ID> test
+docker images
+docker run -it -d
+docker exec -it <Container Id> bash
+ls
+
+
+5)
+docker ps
+docker rm -f $(sudo docker ps -a -q)
+apt-get install apache2
+service apache status
+service apache2 start 
+service apache2 status
+exit
+docker ps
+docker commit <c ID> Nom_Image_Apache
+docker commit <ID> <username>/<nom Image>
+docker ps
+docker -f rm <ID>
+docker run -it -p Port_Hebergeur:Port_container  -d <NomImage>
+docker ps
+docker exec -it  <ID> bash
+service apache2 start
+docker stop <ID>
+"si  on actualise la page est ne charge plus"
+
+
+6)
+docker logout
+docker login
+docker push <username>/nomImage
+
+
+7)
+mkdir dockerfile
+cd dockerfile
+nano Dockerfile
+'
+FROM
+RUN
+ADD . /var/www/html
+ENTRYPOINT
+ENV
+'
+nano un.html
+sudo usermod -aG docker $USER 
+docker build . -t youngdevps/imageDocker_issuDuScriptDocker
+docker run -it -p 84:80 -d dockerfile_new
+"verifier apache2"
+docker exec -it <ID> bash
+echo $name
+exit 
+docker push 
+ 
+
+8)
+- Montage en bytes
+docker run -it -v /home/youngdevps/Documents/dockerfile:/app -d youngdevps/apache-ubuntu
+docker exec -it <ID> bash
+cd app
+ls
+"ajouter un autre ficier dans 'dockerfile'"
+ls
+
+- volume Docker
+docker volume create test
+docker volume test
+docker run -it --mount source=test,target=/app -d ubuntu
+docker exec <id> bash
+cd app
+ls
+touch 1.html
+touch 2.html
+"d'une autre session"
+docker run -it --mount source=test,target=/app2 -d ubuntu
+cd app2
+ls
+touch 3.html
+"revient a ma session"
+ls
+exit
+docker images
+docker volume create apache
+docker run -it --mount source=apache,target=/var/www/html -d youngdevps/apache-ubuntu
+docker exec -it <id> bash
+dc /var/www/html
+ls
+"deuxieme session"
+docker run -it --mount source=apache,target=/app4 -d ubuntu
+cd app4
+ls
+"revenir session"
+exit
+nano deux.html
+docker cp ./2.html <id>:var/www/html
+docker ps
+docker rm <id>
+docker run -it --mount source=apache, target=/var/www/html -p 81:80 -d imagedocker_issuscripcker
+'lancer dans le navigateur IP:81 Ip:91/deux.html'
+docker run -it -p 82:80 -d imagedocker_issuscriptdocker
+ls 'n'as pas 2.html'
+
+
+9)
+"installer docker compose"
+cd Documents
+mkdir compose
+cd compose
+nano wordpress.yaml
+docker-compose up -d
+"renommer le yml"
+
+10)
+docker rm -f <wordpress ID>
+docker swarm init --advertise-addr=<ip>
+docker node ls
+docker swarm leave 
+docker node ls
+docker swarm leave --force
+sudo usermod -aG docker $USER
+
+
+11)
+docker service create --name apache --replicas 5 -p 83:80 youngdevps/webapp
+docker service ls
+masterIP:83
+workerIP:83
+docker remove all worker and master
+refresh worker and master
+docker service sscale apache=2
+docker service ls
+docker service rn apache
+docker swarm leave
+docker swarm leave --force
+
+
